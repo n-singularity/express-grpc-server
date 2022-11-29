@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  #nodejs service
+  nodejs:
+    build: .
+    command: npm run dev
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+      - "50051:50051"

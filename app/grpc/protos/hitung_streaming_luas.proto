@@ -1,0 +1,25 @@
+package hitungluas;
+
+message LuasRequest{
+    required int32 panjang = 1;
+    required int32 lebar = 2;
+}
+
+message LuasReply{
+    required string message = 1;
+    required int32 luas = 2;
+}
+
+message CountRequest{
+    required string id = 1;
+}
+
+message CountReply{
+    required int32 total = 1;
+}
+
+service HitungLuas{
+    rpc LuasPersegiPanjang(LuasRequest) returns(LuasReply){}
+
+    rpc CountWebOpened(stream CountRequest) returns (stream CountReply) {}
+}
